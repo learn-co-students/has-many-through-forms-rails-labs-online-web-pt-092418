@@ -1,1 +1,12 @@
+<div class=post-content>
+<h3>Post Title: "<%= @post.title %>"</h3>
+<h3>Post Content:</h3>
+<p>"<%= @post.content %>"</p>
+<p>Post Categories:<%= @post.post_category_ids %><p>
 
+<% @post.comments.each do |comment| %>
+  <p>Username: <%= comment.user.username %> said: <%= comment.content %></p>
+<% end %>
+</div>
+
+<%= render 'comments/form', comment: @post.comments.build %>
