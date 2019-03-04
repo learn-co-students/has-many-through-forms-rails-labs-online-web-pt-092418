@@ -2,6 +2,7 @@
 <h3>Post Title: "<%= @post.title %>"</h3>
 <h3>Post Content:</h3>
 <p>"<%= @post.content %>"</p>
+<p><%= @post.categories.name %></p>
 
 <% @post.comments.each do |comment| %>
   <p>Username: <%= comment.user.username %> said: <%= comment.content %></p>

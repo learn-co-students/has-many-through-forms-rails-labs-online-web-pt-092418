@@ -6,12 +6,11 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-    # @comment.user.build
     redirect_to comment_path(@comment)
   end
 
   def show
-    @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:comment_id])
   end
 
   private

@@ -1,18 +1,17 @@
 <div class=comment-content>
-  <%= @comment %>
 
 <h5>Enter your comment below:</h5>
-<%= form_for comment do |f| %>
+<%= form_for :comment do |f| %>
   <%= f.label "Comment Content" %>
-  <%= f.text_field :content %>
+  <%= f.text_field :content %><p>
 <h5>Choose an existing User or Create a New User</h5>
-  <%= f.collection_select :user_id, User.all, :id, :username%>
+  <%= f.collection_select :user_id, User.all, :id, :username%><p>
   <%= f.fields_for :user do |users_fields| %>
     <%= users_fields.label "User Name" %>
-    <%= users_fields.text_field :username %>
+    <%= users_fields.text_field :username %><p>
     <%= users_fields.label "User Email" %>
-    <%= users_fields.text_field :email %>
+    <%= users_fields.text_field :email %><p>
   <% end %>
-<%= f.submit %>
+<%= f.submit "Create Comment"%>
 <% end %>
 </div>

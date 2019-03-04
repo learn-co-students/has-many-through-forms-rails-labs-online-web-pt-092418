@@ -3,5 +3,6 @@
 <ul>
 <% @user.posts.each do |post| %>
 <h3>Title: <%= link_to post.title, post_path(post) %></h3>
+<h3><%= link_to "Create a New Post", new_post_path(post) %></h3>
 <% end %>
 </ul>
