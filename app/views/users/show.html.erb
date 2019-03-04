@@ -1,8 +1,9 @@
 <h3>Username: <%= @user.username %></h3>
 <h3>My Post Activity:</h3>
 <ul>
-<% @user.posts.each do |post| %>
+<% @user.posts.uniq.each do |post| %>
 <h3>Title: <%= link_to post.title, post_path(post) %></h3>
 <h3><%= link_to "Create a New Post", new_post_path(post) %></h3>
 <% end %>
 </ul>
+/p>
