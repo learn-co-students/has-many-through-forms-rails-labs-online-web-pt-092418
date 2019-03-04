@@ -10,6 +10,7 @@
   <%= f.label "Choose or Create your Post Category" %><p>
   <%= f.collection_check_boxes :category_ids, Category.all, :id, :name %><p>
   <%= f.fields_for :categories, post.categories.build do |categories_fields| %>
+  <%= categories_fields.hidden_field :category_id, :value => @category.id %>
     <%= categories_fields.label "New Category Name" %>
     <%= categories_fields.text_field :name %>
   <% end %><p>
