@@ -1,17 +1,17 @@
-<h2><%= @post.title %> </h2>
-<p> <%= @post.content %></p>
+<h2>Title: <%= @post.title %> </h2>
+<p>"<%= @post.content %>"</p>
 
 <h3>Categories:</h3>
 <p>
 <% @post.categories.each do |category| %>
-<li> <%= link_to category.name, category %></li>
+<li><%= link_to category.name, category %></li>
 <%end%>
 </p>
 
 <h3>Comments:</h3>
 <p>
   <% @post.comments.each do |comment| %>
-  <li> <%= comment.user.username %> says: <%=comment.content%></li>
+  <li><%= comment.user.username %> says: <%=comment.content%></li>
   <% end %>
 </p>
 
