@@ -1,11 +1,19 @@
 <h1><%= @post.title %></h1>
 <p><%= @post.content %></p>
 
+    <% @post.comments.each do |comment|%>
+    <div><%= comment.user.username %> says: <%= comment.content %></div>
+    <% end %>
+  
   <%= form_for :comment, :url => "/comments" do |f|%>
+    <%= f.hidden_field :post_id, :value => @post.id %>
     <%= f.label :content %>
-    <%= f.text_area :content%>
+    <%= f.text_area :content%> 
+   <%= f.hidden_field :post_id, :value => @post.id %>
     <%= f.collection_select :user_id, User.all, :id, :username, :prompt => true  %>
-
+    <%= f.fields_for :usermame, post.usernames.build do |usernames_fiellds| %>
+    <%= usernames_fields.text_field :name %>
+    <% end %>
     
     <%= f.submit 'Create Comment' %>
   <% end %>
