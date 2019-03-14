@@ -12,7 +12,8 @@
    <%= f.hidden_field :post_id, :value => @post.id %>
     <%= f.collection_select :user_id, User.all, :id, :username, :prompt => true  %>
     <%= f.fields_for :username do |u| %>
-    <%= u.label :username %>
+      <%= u.label :username %>
+      <%= u.text_area :username%>
     <% end %>
 
     
