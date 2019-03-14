@@ -1,5 +1,11 @@
 <h1><%= @post.title %></h1>
-<p> <% = @post.content %></p> 
+<p><%= @post.content %></p>
 
-<h3>Category: <%= link_to @post.category.name, category_path(@post.category) if @post.category %></h3>
- <h3> Comment: <% link_to @post.comment.content, comment_path(@post.comment) if @post.comment %></h3>
+  <%= form_for :comment, :url => "/comments" do |f|%>
+    <%= f.label :content %>
+    <%= f.text_area :content%>
+    <%= f.collection_select :user_id, User.all, :id, :username, :prompt => true  %>
+
+    
+    <%= f.submit 'Create Comment' %>
+  <% end %>
