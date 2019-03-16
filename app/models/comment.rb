@@ -1,9 +1,7 @@
 class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
-  accepts_nested_attributes_for :user, reject_if: blank_id
+  accepts_nested_attributes_for :user, reject_if: :all_blank
  
-  def blank_id
-    if 
-  end
+  
 end

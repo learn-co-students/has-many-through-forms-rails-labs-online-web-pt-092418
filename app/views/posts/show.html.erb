@@ -10,6 +10,7 @@ Categories:<br />
 
     <% @post.comments.each do |comment|%>
   <div><%= comment.user.username %> says: <%= comment.content %></div>
+  
    
     <% end %>
   
@@ -28,6 +29,11 @@ Categories:<br />
       <%= u.label :email%>
       <%= u.text_field :email %>
     <% end %>
+
+<% @uniques.each do |user| %>
+  <%= link_to user.username, user_path(user) %>
+<% end %>
+
 
     
     <%= f.submit 'Create Comment' %>

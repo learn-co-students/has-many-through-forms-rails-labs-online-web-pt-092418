@@ -2,7 +2,10 @@ class PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @users = User.all
-    
+    @commentusers = @post.comments.map do |comment|
+      comment.user
+    end
+    @uniques = @commentusers.uniq
     @comment = Comment.new
     @comment.build_user
   end
